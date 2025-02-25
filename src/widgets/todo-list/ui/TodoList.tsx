@@ -27,7 +27,7 @@ export const TodoList: FC = () => {
       <input
         className={styles.input}
         type="text"
-        placeholder="Add task"
+        placeholder="What needs to be done?"
         id="todo-input"
         onChange={handleInputChange}
         value={input}

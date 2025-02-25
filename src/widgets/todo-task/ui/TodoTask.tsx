@@ -18,7 +18,10 @@ export const TodoTask: FC<Task> = (props) => {
         checked={props.isCompleted}
         onChange={handleCheckboxChange}
       />
-      <label className={styles.text} htmlFor={props.id}>
+      <label
+        className={props.isCompleted ? styles.markedText : styles.text}
+        htmlFor={props.id}
+      >
         {props.title}
       </label>
     </li>
