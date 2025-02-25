@@ -5,7 +5,11 @@ import { TodoListStore, ViewModes } from "../types/models";
 export const useTodoListStore = create<TodoListStore>()(
   persist(
     (set, get) => ({
-      tasks: [],
+      tasks: [
+        { id: "3", title: "Покрытие тестами", isCompleted: false },
+        { id: "2", title: "Прекрасный код", isCompleted: true },
+        { id: "1", title: "Тестовое задание", isCompleted: false },
+      ],
       viewMode: ViewModes.All,
       updateViewMode: (mode) => set({ viewMode: mode }),
       addTask: (title) =>
