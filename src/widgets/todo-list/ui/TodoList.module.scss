@@ -9,29 +9,7 @@
   color: var(--color-brown);
 }
 
-.input {
-  width: 100%;
-
-  background-color: var(--color-white);
-  color: var(--color-black);
-  padding: 14px 46px;
-  font-size: 16px;
-  font-weight: 400;
-  border: var(--border);
-  outline: none;
-
+.todo {
   box-shadow: var(--box-shadow);
-
-  transition: all 0.2s ease-in-out;
-
-  &::placeholder {
-    color: var(--color-black);
-    opacity: 0.2;
-    font-weight: 400;
-    font-style: italic;
-  }
-
-  &:focus {
-    background-color: var(--color-white);
-  }
+  border: var(--border);
 }
