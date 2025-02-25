@@ -1,0 +1,22 @@
+.wrapper {
+  display: flex;
+  padding: 4px 10px;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--color-white);
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 6px;
+}
+
+.activeButton {
+  outline: 1px solid var(--color-black);
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.button {
+  padding: 4px;
+}

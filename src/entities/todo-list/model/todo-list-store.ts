@@ -1,16 +1,18 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import { TodoListStore } from "../types/models";
+import { TodoListStore, ViewModes } from "../types/models";
 
 export const useTodoListStore = create<TodoListStore>()(
   persist(
-    (set) => ({
+    (set, get) => ({
       tasks: [],
+      viewMode: ViewModes.All,
+      updateViewMode: (mode) => set({ viewMode: mode }),
       addTask: (title) =>
         set((state) => ({
           tasks: [
             ...state.tasks,
-            { id: `task-${new Date()}`, title, isCompleted: false },
+            { id: `task-${Date.now()}`, title, isCompleted: false },
           ],
         })),
       clearCompletedTasks: () =>
@@ -31,6 +33,12 @@ export const useTodoListStore = create<TodoListStore>()(
             return task;
           }),
         })),
+      getActiveTasksCount: () =>
+        get().tasks.filter((task) => task.isCompleted !== true).length,
+      getActiveTasks: () =>
+        get().tasks.filter((task) => task.isCompleted !== true),
+      getCompletedTasks: () =>
+        get().tasks.filter((task) => task.isCompleted !== false),
     }),
     {
       name: "todo-tasks",

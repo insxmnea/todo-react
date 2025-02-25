@@ -1,0 +1,22 @@
+.wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border-bottom: var(--border);
+  background-color: var(--color-white);
+}
+
+.text {
+  font-size: 18px;
+  width: 100%;
+  padding: 14px 46px;
+}
+
+.checkbox {
+  position: absolute;
+  left: 20px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: var(--checkbox);
+}

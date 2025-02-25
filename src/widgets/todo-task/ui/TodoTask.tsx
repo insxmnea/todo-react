@@ -1,18 +1,26 @@
 import { FC } from "react";
-import { Task } from "src/entities/todo-list";
+import { Task, useTodoListStore } from "src/entities/todo-list";
+import styles from "./TodoTask.module.scss";
 
 export const TodoTask: FC<Task> = (props) => {
-  const handleCheckboxChange = () => {};
+  const { markTask } = useTodoListStore();
+  const handleCheckboxChange = () => {
+    markTask(props.id);
+  };
+
   return (
-    <div>
+    <li className={styles.wrapper}>
       <input
+        className={styles.checkbox}
         type="checkbox"
         id={props.id}
         name={props.id}
         checked={props.isCompleted}
         onChange={handleCheckboxChange}
       />
-      <label htmlFor={props.id}>{props.title}</label>
-    </div>
+      <label className={styles.text} htmlFor={props.id}>
+        {props.title}
+      </label>
+    </li>
   );
 };
